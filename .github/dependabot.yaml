@@ -25,7 +25,7 @@ updates:
            - "patch"
     commit-message:
       prefix: "chore(welcome): "
-    target-branch: "dev"
+    target-branch: "main"
     labels:
       - "change/standard"
       - "dependencies"
