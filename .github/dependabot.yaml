@@ -1,0 +1,33 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    versioning-strategy: auto
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 12
+    ignore:
+      - dependency-name: "@liveramp/*"
+      - dependency-name: "@trycourier/react-hooks"
+      - dependency-name: "@trycourier/react-provider"
+      - dependency-name: "eslint"
+      - dependency-name: "@commitlint/cli"
+      - dependency-name: "react"
+        versions: ["17.x","18.x", "16.x"]
+      - dependency-name: "react-dom"
+        versions: ["17.x","18.x","16.x"]
+    groups:
+       dev-dependencies:
+         patterns:
+           - "*"
+         update-types:
+           - "minor"
+           - "patch"
+    commit-message:
+      prefix: "chore(welcome): "
+    target-branch: "dev"
+    labels:
+      - "change/standard"
+      - "dependencies"
+    assignees:
+      - "ambershi1"

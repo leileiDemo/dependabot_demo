@@ -1,0 +1,18 @@
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - docs/**
+jobs:
+  publish_confluence:
+    runs-on: ubuntu-latest
+    name: Publish docs to confluence
+    steps:
+    - uses: actions/checkout@v1
+    - name: publish to confluence
+      uses: pratikmallya/publish-confluence@master
+      with:
+        username: ${{ secrets.atlassianUsername }}
+        apitoken: ${{ secrets.atlassianApitoken }}
+        docsdir: docs

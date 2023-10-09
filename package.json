@@ -1,0 +1,60 @@
+{
+  "name": "root",
+  "private": true,
+  "version": "1.5.0",
+  "license": "UNLICENSED",
+  "author": "@LiveRamp/ax",
+  "keywords": [
+    "harness",
+    "harness-error",
+    "harness-debug",
+    "root-config"
+  ],
+  "scripts": {
+    "prepare": "husky install",
+    "build": "pnpm --filter @liveramp/* build",
+    "lint": "eslint applications/**/src --ext js,ts,tsx",
+    "test": "pnpm -r test",
+    "start": "pnpm --filter @liveramp/harness start",
+    "start-local": "./local-development/start-local-development.sh",
+    "start-nav": "pnpm --filter @liveramp/harness-nav start"
+  },
+  "dependencies": {
+    "welcome": "./applications/welcome",
+    "nav": "./applications/debug"
+  },
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=7"
+  },
+  "browserslist": [
+    "extends @liveramp/browserslist-config-common"
+  ],
+  "devDependencies": {
+    "@liveramp/browserslist-config-common": "^0.0.1",
+    "@commitlint/cli": "^17.2.0",
+    "@commitlint/config-conventional": "^17.2.0",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.43.0",
+    "eslint": "^8.27.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.31.10",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "eslint",
+      "prettier --write"
+    ]
+  }
+}

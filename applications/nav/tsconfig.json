@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "outDir": "dist",
+    "jsx": "react-jsx",
+    "types": ["systemjs", "react", "testing-library__jest-dom", "node"],
+    "importHelpers": true,
+    "esModuleInterop": true,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "downlevelIteration": true
+  },
+  "include": ["src", "test", "jest.config.ts", "jest.setup.afterEnv.ts"]
+}
